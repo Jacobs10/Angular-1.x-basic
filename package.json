@@ -1,0 +1,16 @@
+{
+  "name": "Ev_Dream",
+  "version": "",
+  "description": "",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-messages": "^1.5.0",
+    "angular-route": "^1.5.0",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.0"
+  }
+}
