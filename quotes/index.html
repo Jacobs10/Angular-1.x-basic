@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="quoteBook">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Quotes</title>
+  </head>
+  <body ng-controller="mainCtrl">
+    <div class="container">
+      <h1 class="text-center">--Quotes---</h1>
+      <div class="blog-container">
+        <div class="row">
+          <div class="col-sm-4 btn btn-primary" ng-click="toggleAddQuote()">
+            Add Quote
+          </div>
+          <div class="col-sm-4 btn btn-danger" ng-click="toggleRemoveQuote()">
+            Remove Quote
+          </div>
+          <div class="col-sm-4 btn btn-success" ng-click="toggleFilterQuotes()">
+            Filter Quote
+          </div>
+        </div>
+        <div class="form-group row" ng-show="showAddQuote">
+          <h3> Quote: </h3> <input type="text" ng-model="quote.text" class="form-control" placeholder="Quote"> <br/>
+          <h3> Author: </h3><input type="text" ng-model="quote.author" class="form-control" placeholder="Author"> <br />
+          <input type="submit" ng-click="addQuote()" class="form-control btn-primary" placeholder="Submit">
+        </div>
+        <div class="form-group row" ng-show="showRemoveQuote">
+          Select the Quote # to Remove:
+          <input type="number" min="1" max="{{quotes.length}}" ng-model="removeQuoteNum" placeholder="Quote"> <br/><br/>
+          <input type="submit" ng-click="removeQuote()" class="form-control btn-danger" placeholder="Remove">
+        </div>
+        <div class="form-group row" ng-show="showFilterQuotes">
+          <h3> Filter: </h3> <input type="text" ng-model="filterPhrase" class="form-control" placeholder="Filter"> <br/>
+        </div>
+        <div class="row" ng-repeat="data in quotes | filter:filterPhrase">
+          <h4 class="col-sm-8">{{$index + 1}} - {{data.text}} </h4>
+          <h4 class="col-sm-4 text-xs-right"> - {{data.author}} </h4>
+        </div>
+      </div>
+    </div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
